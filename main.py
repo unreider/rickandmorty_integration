@@ -1,4 +1,5 @@
 import asyncio
+import os
 import json
 import aiofiles
 from rickandmorty_client import RickAndMortyClient
@@ -17,7 +18,7 @@ async def main():
 			client.get_locations(),
 			client.get_episodes()
 		)
-		
+
 		await asyncio.gather(
 			save_to_file(characters, 'data/characters.json'),
 			save_to_file(locations, 'data/locations.json'),
@@ -27,4 +28,5 @@ async def main():
 
 
 if __name__ == '__main__':
+	os.makedirs('data', exist_ok=True)  # create the folder 'data' if it does not exist
 	asyncio.run(main())
