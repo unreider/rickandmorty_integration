@@ -37,9 +37,5 @@ This will fetch all characters, locations, and episodes from the API and save th
 - **Async Operations**: The client module leverages `aiohttp` for non-blocking HTTP requests, with pagination handled in a single method (`_fetch_all_pages`). The sample app uses `asyncio.gather` to fetch and save data concurrently, optimizing performance.
 - **File Handling**: The `data/` directory is created automatically using `os.makedirs`, ensuring the script runs out of the box. Data is saved as pretty-printed JSON with `aiofiles` for async I/O.
 
-## Notes
-- No error handling (e.g., HTTP 404) is included, as per the task’s instructions.
-- The solution prioritizes simplicity, clarity, and adherence to requirements.
-
 ## Submission
 This project is submitted as a Git repository for review. Feel free to reach out with any questions!
