@@ -33,13 +33,13 @@ class RickAndMortyClient:
 		return results
 
 	async def get_characters(self):
-		"""Fetch all characters."""
+		"""Fetch all characters"""
 		return await self._fetch_all_pages('character')
-	
+
 	async def get_locations(self):
-		"""Fetch all locations."""
+		"""Fetch all locations"""
 		return await self._fetch_all_pages('location')
-	
+
 	async def get_episodes(self):
-		"""Fetch all episodes."""
+		"""Fetch all episodes"""
 		return await self._fetch_all_pages('episode')
