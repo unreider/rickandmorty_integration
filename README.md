@@ -34,7 +34,7 @@ This will fetch all characters, locations, and episodes from the API and save th
 ## Implementation Details
 - **API Choice**: This solution uses the REST interface of the Rick and Morty API (`https://rickandmortyapi.com/api/`).  
   - **Why REST over GraphQL?**: While I’m experienced with GraphQL and appreciate its ability to fetch all data in a single query, I chose REST for this task to keep the implementation straightforward and aligned with the requirement to "avoid over-engineering". REST’s paginated endpoints are simple to handle asynchronously, and the provided solution efficiently fetches all data using a clean, iterative approach. GraphQL could reduce requests but would introduce query syntax complexity unnecessary for this scope.
-- **Async Operations**: The client module leverages `aiohttp` for non-blocking HTTP requests, with pagination handled in a single method (`_fetch_all_pages`). The sample app uses `asyncio.gather` to fetch and save data concurrently, optimizing performance.
+- **Async Operations**: The client module leverages `aiohttp` for non-blocking HTTP requests, with pagination handled in a single method (`_fetch_all_pages`). Basic status code checks (200 OK) are included to ensure successful responses. The sample app uses `asyncio.gather` to fetch and save data concurrently, optimizing performance.
 - **File Handling**: The `data/` directory is created automatically using `os.makedirs`, ensuring the script runs out of the box. Data is saved as pretty-printed JSON with `aiofiles` for async I/O.
 
 ## Notes

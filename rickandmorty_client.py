@@ -20,12 +20,16 @@ class RickAndMortyClient:
 		url = f'{self.BASE_URL}/{endpoint}'
 		
 		async with self.session.get(url) as response:
+			if response.status != 200:
+				raise Exception(f"Failed to fetch {url}: Status {response.status}")
 			data = await response.json()
 			results.extend(data['results'])
 			next_url = data['info']['next']
 		
 		while next_url:
 			async with self.session.get(next_url) as response:
+				if response.status != 200:
+					raise Exception(f"Failed to fetch {next_url}: Status {response.status}")
 				data = await response.json()
 				results.extend(data['results'])
 				next_url = data['info']['next']
